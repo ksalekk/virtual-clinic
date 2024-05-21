@@ -1,0 +1,23 @@
+.auth-container {
+    text-align: center;
+    width: 350px;
+    background-color: var(--bg-main);
+    padding: var(--medium-padding);
+    border-radius: var(--radius-size);
+    box-shadow: 0 0 3px var(--bg-main);
+}
+
+.auth-container input {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.auth-container button {
+    margin-top: var(--small-margin);
+    width: 40%;
+}
+
+.auth-container a {
+    text-decoration: underline;
+    text-underline-offset: .2rem;
+}

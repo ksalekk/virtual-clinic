@@ -1,0 +1,46 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:8.0
+    container_name: db
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "${LOCAL_DB_PORT}:${CONTAINER_DB_PORT}"
+    volumes:
+      - ./db/mysql-scripts/schema.sql:/docker-entrypoint-initdb.d/1.sql
+      - ./db/mysql-scripts/data.sql:/docker-entrypoint-initdb.d/2.sql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u ${MYSQL_USER} -p${MYSQL_PASSWORD}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+
+  backend:
+    build: ./virtual-clinic
+    container_name: backend
+    environment:
+      DB_URL: jdbc:mysql://db:${CONTAINER_DB_PORT}/${MYSQL_DATABASE}
+      DB_USER: ${MYSQL_USER}
+      DB_PASSWORD: ${MYSQL_PASSWORD}
+      ALLOW_ORIGINS: http://localhost:${LOCAL_FRONTEND_PORT}
+    ports:
+      - "${LOCAL_BACKEND_PORT}:${CONTAINER_BACKEND_PORT}"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build: 
+      context: ./virtual-clinic-client
+      args:
+        API_URL: http://localhost:${LOCAL_BACKEND_PORT}
+    container_name: frontend
+    ports:
+      - "${LOCAL_FRONTEND_PORT}:${CONTAINER_FRONTEND_PORT}"
+    depends_on:
+      - backend

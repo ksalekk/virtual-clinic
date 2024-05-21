@@ -1,0 +1,167 @@
+/* utils */
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.error-message {
+  color: var(--error-color);
+}
+
+.info-window {
+  text-align: center;
+  width: 400px;
+  background-color: var(--bg-main);
+  padding: var(--medium-padding);
+  border-radius: var(--radius-size);
+  box-shadow: 0 0 3px var(--bg-main);
+}
+
+.layout {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--bg-dark);
+  color: var(--text-color);
+  padding: 3rem;
+  box-sizing: border-box;
+}
+
+.centered-layout {
+  align-items: center;
+}
+
+.dashboard-layout {
+  align-items: flex-start;
+}
+
+
+/* dashboard */
+.dashboard {
+  min-width: 80%;
+  background-color: var(--bg-main);
+  padding: var(--medium-padding);
+  border-radius: var(--radius-size);
+}
+
+.dashboard header a {
+  text-decoration: none;
+  margin-right: var(--tiny-margin);
+}
+
+
+/* patient area */
+.patient-edit {
+  padding: 0 var(--big-padding);
+}
+
+.corner {
+  margin: auto auto 0;
+  margin-left: auto;
+  padding-bottom: var(--small-margin);
+}
+
+.corner button {
+  padding: var(--small-padding) var(--big-padding);
+}
+
+/* appointment details */
+.appointment-details-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 var(--big-padding);
+}
+
+.appointment-details-container h2 {
+  font-size: 2rem;
+}
+
+.appointment-details-container header {
+  font-size: 1.1rem;
+  word-spacing: 0.5rem;
+}
+
+.appointment-details-container p {
+  margin: 0 0 0.3rem;
+}
+
+/* .appointment-details-container span {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-right: 1.2rem;
+} */
+
+span {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-right: 1.2rem;
+}
+
+.appointment-details-container h3 {
+    font-size: 1.5rem;
+    margin: 0 0 0.8rem;
+}
+
+.appointment-details-content {
+    margin: auto;
+}
+
+.personal {
+  display: flex;
+  padding: 1rem 0;
+  margin-top: 1rem;
+}
+
+.patient-data {
+  display: flex;
+  gap: 4rem;
+  padding-right: 3rem;
+  border-right: 3px solid var(--border-color);
+}
+
+.doctor-data {
+  padding-left: 3rem;
+}
+
+.summary p {
+  margin-bottom: 1.6rem;
+}
+
+.edit-summary textarea {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.edit-summary button {
+  margin-top: 1.2rem;
+  width: 100%;
+}
+
+
+/* add appointment */
+.add-appointment {
+  text-align: center;
+}
+
+.add-appointment .col button {
+  width: 100%;
+  margin-top: var(--medium-padding);
+}
+
+.add-appointment .col {
+  justify-content: center;
+}
+
+.add-appointment p {
+  text-align: start;
+}
+
+.add-appointment .row {
+  margin-bottom: var(--big-padding);
+}
