@@ -84,8 +84,7 @@ public class AuthGuard {
                 Role.DOCTOR,
                 new HashSet<>(List.of(
                         new Endpoint("/doctors/*", Endpoint.GET_OR_PUT),
-                        new Endpoint("/doctors/*/appointments/**", Endpoint.GET),
-                        new Endpoint("/appointments/*", Endpoint.GET_OR_PUT)
+                        new Endpoint("/doctors/*/appointments/**", Endpoint.GET_OR_PUT)
                 ))
         );
 
@@ -95,6 +94,7 @@ public class AuthGuard {
                 new HashSet<>(List.of(
                         new Endpoint("/patients", Endpoint.GET),
                         new Endpoint("/patients/*", Endpoint.GET),
+                        new Endpoint("/doctors", Endpoint.GET),
                         new Endpoint("/doctors/*", Endpoint.GET),
                         new Endpoint("/doctors/*/appointments", Endpoint.GET),
                         new Endpoint("/appointments", Endpoint.POST)

@@ -114,18 +114,22 @@ public class AppointmentController {
     }
 
 
-    @PutMapping("/appointments/{id}")
-    public ResponseEntity<AppointmentDto> updateAppointment(@RequestBody AppointmentDto appointment, @PathVariable Long id, HttpSession  httpSession) {
+    @PutMapping("/doctors/{doctor_id}/appointments/{appointment_id}")
+    public ResponseEntity<AppointmentDto> updateAppointment(
+            @RequestBody AppointmentDto appointment,
+            @PathVariable(name = "doctor_id") Long doctorId,
+            @PathVariable(name = "appointment_id") Long appointmentId,
+            HttpSession  httpSession) {
         // patient => cannot
         // doctor => only own
         // staff => cannot
 
         // PUT /appointments/id => filter pass only DOCTOR; additional condition must be true: principal.id == id
         Principal principal = (Principal) httpSession.getAttribute("principal");
-        if(this.authGuard.checkIdorOccurence(principal, Role.DOCTOR, id)) {
+        if(this.authGuard.checkIdorOccurence(principal, Role.DOCTOR, doctorId)) {
             return ResponseEntity.notFound().build();
         } else {
-            return this.appointmentService.updateAppointment(appointment, id)
+            return this.appointmentService.updateAppointment(appointment, appointmentId)
                     .map(ResponseEntity::ok)
                     .orElse(ResponseEntity.notFound().build());
         }
