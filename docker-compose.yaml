@@ -21,7 +21,7 @@ services:
 
 
   backend:
-    build: ./virtual-clinic
+    build: ./backend
     container_name: backend
     environment:
       DB_URL: jdbc:mysql://db:${CONTAINER_DB_PORT}/${MYSQL_DATABASE}
@@ -36,7 +36,7 @@ services:
 
   frontend:
     build: 
-      context: ./virtual-clinic-client
+      context: ./frontend
       args:
         API_URL: http://localhost:${LOCAL_BACKEND_PORT}
     container_name: frontend

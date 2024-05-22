@@ -1,8 +1,7 @@
 package com.jsalek.pw.virtualclinic.security.authentication;
 
 import com.jsalek.pw.virtualclinic.security.user.Principal;
-import com.jsalek.pw.virtualclinic.security.utils.NoSuchRoleException;
-import jakarta.persistence.EntityExistsException;
+import com.jsalek.pw.virtualclinic.security.user.SignupDto;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +9,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.net.URI;
 
 
 @RestController
@@ -27,7 +24,7 @@ public class AuthController {
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<Principal> registerUser(@Valid @RequestBody SignUpDto signUpDto) {
+    public ResponseEntity<Principal> registerUser(@Valid @RequestBody SignupDto signUpDto) {
         return this.authService.registerUser(signUpDto)
                 .map( principal -> new ResponseEntity<>(principal, HttpStatus.CREATED) )
                 .orElse(ResponseEntity.unprocessableEntity().build());

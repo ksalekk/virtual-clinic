@@ -2,14 +2,14 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import ItemsList from '../generics/ItemsList';
-import { apiUrl, formatDatetime } from '../utils';
+import { formatDatetime } from '../utils';
 import { ViewIcon, EditIcon } from '../icons';
 
 const DoctorAppointments = ( {restrict} ) => {
     const user = JSON.parse(localStorage.getItem('user'));
     const { id: pathId } = useParams();
     const id = pathId ?? user.id;
-    const appointmentsUrl = `${apiUrl}/doctors/${id}/appointments`;
+    const appointmentsUrl = `/doctors/${id}/appointments`;
     const [appointments, setAppointments] = useState();
 
     

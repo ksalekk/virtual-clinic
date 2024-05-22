@@ -1,6 +1,5 @@
 package com.jsalek.pw.virtualclinic.domain.doctor;
 
-import com.jsalek.pw.virtualclinic.global.ResourceNotFoundException;
 import com.jsalek.pw.virtualclinic.security.authorization.AuthGuard;
 import com.jsalek.pw.virtualclinic.security.user.Principal;
 import com.jsalek.pw.virtualclinic.security.user.Role;

@@ -5,11 +5,10 @@ import AppointmentDetails from '../appointments/AppointmentDetails';
 import axios from 'axios';
 import DoctorAppointments from './DoctorAppointments';
 import Header from '../generics/Header';
-import { apiUrl } from '../utils';
 
 const DoctorArea = () => {
     const user = JSON.parse(localStorage.getItem('user'));
-    const doctorUrl = `${apiUrl}/doctors/${user.id}`;
+    const doctorUrl = `/doctors/${user.id}`;
     const [doctor, setDoctor] = useState();
 
     useEffect(() => {

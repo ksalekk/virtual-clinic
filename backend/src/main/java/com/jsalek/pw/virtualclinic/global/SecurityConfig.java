@@ -1,4 +1,4 @@
-package com.jsalek.pw.virtualclinic.security;
+package com.jsalek.pw.virtualclinic.global;
 
 
 import org.springframework.context.annotation.Bean;

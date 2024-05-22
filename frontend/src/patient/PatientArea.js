@@ -6,11 +6,10 @@ import axios from 'axios';
 import PatientAppointments from './PatientAppointments';
 import Header from '../generics/Header';
 import PatientEdit from './PatientEdit';
-import { apiUrl } from '../utils';
 
 const PatientArea = () => {
     const user = JSON.parse(localStorage.getItem('user'));
-    const patientUrl = `${apiUrl}/patients/${user.id}`;
+    const patientUrl = `/patients/${user.id}`;
     const [patient, setPatient] = useState();
 
     useEffect(() => {

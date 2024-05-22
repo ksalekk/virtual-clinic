@@ -4,9 +4,6 @@ import com.jsalek.pw.virtualclinic.domain.doctor.Doctor;
 import com.jsalek.pw.virtualclinic.domain.patient.Patient;
 import com.jsalek.pw.virtualclinic.domain.staff.Staff;
 import com.jsalek.pw.virtualclinic.security.user.*;
-import com.jsalek.pw.virtualclinic.security.utils.NoSuchRoleException;
-import com.jsalek.pw.virtualclinic.security.utils.PasswordEncoder;
-import jakarta.persistence.EntityExistsException;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,12 +21,13 @@ public class AuthService {
         this.userRepo = userRepo;
     }
 
-    public Optional<Principal> registerUser(SignUpDto signUpDto) {
+    public Optional<Principal> registerUser(SignupDto signUpDto) {
 
         if(isUsernameExists(signUpDto.getUsername())) {
             return Optional.empty();
         }
 
+        signUpDto.setRole(Role.PATIENT);
         return this.getUserFromSignUpDto(signUpDto).map(pojo -> {
             pojo.setPassword(PasswordEncoder.getSHA256(signUpDto.getPassword()));
             User createdUser = this.userRepo.save(pojo);
@@ -61,7 +59,7 @@ public class AuthService {
     }
 
 
-    private Optional<User> getUserFromSignUpDto(SignUpDto signUpDto) {
+    private Optional<User> getUserFromSignUpDto(SignupDto signUpDto) {
         if(signUpDto.getRole() == null) {
             return Optional.empty();
         }

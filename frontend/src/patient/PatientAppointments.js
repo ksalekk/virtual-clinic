@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react'
 import ItemsList from '../generics/ItemsList'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { formatDatetime, apiUrl } from '../utils';
+import { formatDatetime } from '../utils';
 import { ViewIcon } from '../icons';
 
 const PatientAppointments = () => {
     const user = JSON.parse(localStorage.getItem('user'));
-    const appointmentsUrl = `${apiUrl}/patients/${user.id}/appointments`;
+    const appointmentsUrl = `/patients/${user.id}/appointments`;
     const [appointments, setAppointments] = useState();
 
     useEffect(() => {

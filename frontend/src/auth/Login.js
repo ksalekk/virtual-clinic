@@ -2,14 +2,13 @@ import './Auth.css';
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { apiUrl } from "../utils";
 
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [invalidAuth, setInvalidAuth] = useState(false);
 
-    const loginUrl = `${apiUrl}/auth/login`
+    const loginUrl = `/auth/login`
 
 
     const handleLogin = async (e) => {

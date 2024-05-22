@@ -1,4 +1,4 @@
-export const apiUrl = process.env.REACT_APP_API_URL || 'http:localhost:8080';
+export const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
 
 export const replaceUndefined = (obj, substitute) => {
 	const isObject = (value) => value && typeof value === 'object' && !Array.isArray(value);

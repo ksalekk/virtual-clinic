@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
-import { formatDatetime, replaceUndefined, apiUrl } from '../utils';
+import { formatDatetime, replaceUndefined } from '../utils';
 import ModalInfo from '../generics/ModalInfo';
 
 const AppointmentDetails = ({ editSummary }) => {
@@ -10,7 +10,7 @@ const AppointmentDetails = ({ editSummary }) => {
     const { appointmentId: id } = useParams();
     const user = JSON.parse(localStorage.getItem('user'));
     const target = `${user.role}s`.toLowerCase();
-    const appointmentDetailsUrl = `${apiUrl}/${target}/${user.id}/appointments/${id}`;
+    const appointmentDetailsUrl = `/${target}/${user.id}/appointments/${id}`;
 
     const [appointment, setAppointment] = useState();
     const [patient, setPatient] = useState();
@@ -36,7 +36,7 @@ const AppointmentDetails = ({ editSummary }) => {
     };
 
 
-    const updateAppointmentUrl = `${apiUrl}/appointments/${id}`;
+    const updateAppointmentUrl = `/doctors/${user.id}/appointments/${id}`;
     const updateAppointment = (e) => {
         e.preventDefault();
 

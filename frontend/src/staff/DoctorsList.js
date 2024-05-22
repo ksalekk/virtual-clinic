@@ -2,11 +2,10 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import ItemsList from '../generics/ItemsList';
-import { apiUrl } from '../utils';
 import { ViewIcon } from '../icons';
 
 const DoctorsList = () => {
-    const doctorsUrl = `${apiUrl}/doctors`;
+    const doctorsUrl = `/doctors`;
     const [doctors, setDoctors] = useState();
 
 

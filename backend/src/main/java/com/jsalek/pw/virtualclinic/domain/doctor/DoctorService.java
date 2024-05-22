@@ -1,7 +1,5 @@
 package com.jsalek.pw.virtualclinic.domain.doctor;
 
-import com.jsalek.pw.virtualclinic.global.ResourceNotFoundException;
-import jakarta.servlet.http.HttpSession;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

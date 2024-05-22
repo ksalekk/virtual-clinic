@@ -4,11 +4,9 @@ import com.jsalek.pw.virtualclinic.security.user.Principal;
 import com.jsalek.pw.virtualclinic.security.user.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.util.PathMatcher;
-import org.springframework.web.client.HttpClientErrorException;
 
 import java.util.*;
 

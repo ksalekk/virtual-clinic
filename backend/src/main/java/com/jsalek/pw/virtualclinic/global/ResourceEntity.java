@@ -6,11 +6,6 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 
-/**
- * Domain object representing any resource that can be
- * created, modified, deleted.
- */
-
 @Data
 @MappedSuperclass
 public abstract class ResourceEntity {

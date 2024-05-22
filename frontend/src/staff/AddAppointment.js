@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ModalList from "../generics/ModalList";
 import axios from "axios";
-import { apiUrl } from "../utils";
 import ModalInfo from "../generics/ModalInfo";
 
 const AddAppointment = () => {
@@ -10,12 +9,12 @@ const AddAppointment = () => {
     const TIMEZONE_OFFSET = new Date().getTimezoneOffset() * 60000;
     const [datetime, setDatetime] = useState();
 
-    const doctorsUrl = `${apiUrl}/doctors`;
+    const doctorsUrl = `/doctors`;
     const [doctors, setDoctors] = useState();
     const [selectedDoctor, setSelectedDoctor] = useState();
     const [doctorModal, setDoctorModal] = useState(false);
 
-    const patientsUrl = `${apiUrl}/patients`;
+    const patientsUrl = `/patients`;
     const [patients, setPatients] = useState();
     const [selectedPatient, setSelectedPatient] = useState();
     const [patientModal, setPatientModal] = useState(false);
@@ -37,8 +36,7 @@ const AddAppointment = () => {
                     const id = item.id;
                     const name = `${item.firstname} ${item.lastname}`;
                     return { id, name };
-                })
-                );
+                }));
 
             } catch (err) {
                 console.error("Error fetching doctors/patients data: ", err)
@@ -50,7 +48,7 @@ const AddAppointment = () => {
     }, [TIMEZONE_OFFSET, doctorsUrl, patientsUrl]);
 
 
-    const postAppointmentUrl = `${apiUrl}/appointments`;
+    const postAppointmentUrl = `/appointments`;
 
     const addAppointment = (e) => {
         e.preventDefault();

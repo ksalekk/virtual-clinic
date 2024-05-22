@@ -1,10 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { apiUrl } from '../utils';
 
 const Logout = () => {
 	const [logoutCompleted, setLogoutCompleted] = useState(false);
-	const logoutUrl = `${apiUrl}/auth/logout`
+	const logoutUrl = `/auth/logout`
 
 	useEffect(() => {
 		axios.get(logoutUrl)

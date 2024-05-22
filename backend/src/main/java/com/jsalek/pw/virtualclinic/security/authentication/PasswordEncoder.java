@@ -1,4 +1,4 @@
-package com.jsalek.pw.virtualclinic.security.utils;
+package com.jsalek.pw.virtualclinic.security.authentication;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;

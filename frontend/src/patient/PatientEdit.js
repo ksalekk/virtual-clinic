@@ -1,12 +1,11 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { replaceUndefined } from "../utils";
-import { apiUrl } from "../utils";
 import ModalInfo from "../generics/ModalInfo";
 
 const PatientEdit = () => {
     const patientId = JSON.parse(localStorage.getItem("user")).id;
-    const patientDetailsUrl = `${apiUrl}/patients/${patientId}/details`;
+    const patientDetailsUrl = `/patients/${patientId}/details`;
     const [patient, setPatient] = useState();
 
     useState(async () => {
@@ -37,7 +36,7 @@ const PatientEdit = () => {
 
 
 
-    const applyChangesUrl = `${apiUrl}/patients/${patientId}`;
+    const applyChangesUrl = `/patients/${patientId}`;
     const [applyFlag, setApplyFlag] = useState(false)
 
     const handleSubmit = (e) => {
