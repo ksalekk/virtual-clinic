@@ -17,9 +17,9 @@ docker-compose -f ./docker-compose.yaml up
 ```
 
 This app have a few predefined users. You can log in as a:
-- patient  (L: patient1   H: patient1)
-- doctor   (L: doctor1    H: doctor1)
-- staff    (L: staff1     H: staff1)
+- patient  (L: patient1   P: patient1)
+- doctor   (L: doctor1    P: doctor1)
+- staff    (L: staff1     P: staff1)
 
 
 ## Features
